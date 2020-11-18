@@ -19,7 +19,7 @@ b. Install Oracle Instant Client on RHEL 7 and CentOS 7
      $ pip install cx_Oracle==7.3
      $ pip install requests, json
 
-### Step 2. Install this script:
+### Step 2. Install this script on the Dremio Coordinator node:
 
 a. Move this script to /usr/local/bin
 
