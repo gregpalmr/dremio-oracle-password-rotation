@@ -63,7 +63,7 @@
                                 0 5 */29 * * python /usr/local/bin/rotate-dremio-oracle-password.py > /var/log/rotate-dremio-oracle-password.log 2>&1
                                 EOF
 
-                                $ chmod go-rw /var/spool/cron/root
+                                $ chmod go-rw /etc/cron.d/rotate-dremio-oracle-password
 
                         b. This example runs the script every 44 days at 5:00AM
 
@@ -75,7 +75,7 @@
                                 0 5 */44 * * python /usr/local/bin/rotate-dremio-oracle-password.py > /var/log/rotate-dremio-oracle-password.log 2>&1
                                 EOF
 
-                                $ chmod go-rw /var/spool/cron/root
+                                $ chmod go-rw /etc/cron.d/rotate-dremio-oracle-password
 """
 
 # Imports
