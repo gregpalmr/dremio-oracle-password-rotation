@@ -42,7 +42,7 @@ b. Create an initial configuration file in /usr/local/etc/
 
             EOF
 
-          $ chmod go-rw /usr/local/etc/rotate-dremio-oracle-password.ini
+     $ chmod go-rw /usr/local/etc/rotate-dremio-oracle-password.ini
 
 c. Test it manually first, before scheduling it with cron
 
