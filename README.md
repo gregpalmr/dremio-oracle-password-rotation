@@ -2,7 +2,7 @@
 
 Change Dremio Data Lake Engine users' Oracle password for Oracle data sources. 
 
-## Use this program to periodically rotate the Oracle password for users that are configured in your Dremio data sources.
+## Some Oracle DBAs configure user profiles to automatically expire passwords after a certain amount of time (i.e. CREATE PROFILE new_profile LIMIT PASSWORD_LIFE_TIME 60). Use this program to periodically rotate the Oracle password for users that are configured in your Dremio data sources.
 
 ### Step 1. Install Prerequisites:
 
