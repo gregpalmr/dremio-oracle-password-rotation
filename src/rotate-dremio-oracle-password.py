@@ -43,9 +43,11 @@
 
                                  [oracle_source1]
                                  current_oracle_password = changeme1
+				 oracle_password_length = 8
 
                                  [oracle_source2]
                                  current_oracle_password = changeme2
+				 oracle_password_length = 10
 
                                  EOF
 
@@ -102,9 +104,7 @@ def logInfo(msg):
 def logErr(msg):
     logInfo('ERROR: ' + msg)
 
-def generate_password():
-
-    password_length = 10
+def generate_password(password_length):
 
     password_characters = string.ascii_letters + string.digits + string.punctuation
 
@@ -187,6 +187,8 @@ for item in catalog_json['data']:
 
             # Get the Oralce password for this data source from the config file
             current_oracle_password =  config_parser.get(source_name, 'current_oracle_password')
+            oracle_password_length  =  config_parser.get(source_name, 'oracle_password_length')
+
             if current_oracle_password == '':
                 logError('    Failed to get Oracle password from config file for data source ' + source_name + '. Skipping this source.')
                 continue
@@ -206,7 +208,7 @@ for item in catalog_json['data']:
                 cursor = oracle_connection.cursor ()
 
                 # generate new password
-                new_password = generate_password()
+                new_password = generate_password(oracle_password_length)
 
                 sqlCmd = 'ALTER USER ' + oracle_username + ' IDENTIFIED BY "' + new_password + '"'
                 
