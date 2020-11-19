@@ -64,7 +64,7 @@
                                 SHELL=/bin/bash
                                 PATH=/sbin:/bin:/usr/sbin:/usr/bin
                                 MAILTO="me@email.com"
-                                0 5 */29 * * python /usr/local/bin/rotate-dremio-oracle-password.py > /var/log/rotate-dremio-oracle-password.log 2>&1
+                                0 5 */29 * * python /usr/local/bin/rotate-dremio-oracle-password.py >> /var/log/rotate-dremio-oracle-password.log 2>&1
                                 EOF
 
                                 $ chmod go-rw /etc/cron.d/rotate-dremio-oracle-password
@@ -76,7 +76,7 @@
                                 SHELL=/bin/bash
                                 PATH=/sbin:/bin:/usr/sbin:/usr/bin
                                 MAILTO="me@email.com"
-                                0 5 */44 * * python /usr/local/bin/rotate-dremio-oracle-password.py > /var/log/rotate-dremio-oracle-password.log 2>&1
+                                0 5 */44 * * python /usr/local/bin/rotate-dremio-oracle-password.py >> /var/log/rotate-dremio-oracle-password.log 2>&1
                                 EOF
 
                                 $ chmod go-rw /etc/cron.d/rotate-dremio-oracle-password
