@@ -31,18 +31,18 @@ b. Create an initial configuration file in /usr/local/etc/
 Because the Dremio REST API does not allow client programs to query the current Oracle password for a Dremio data source, this program keeps track of the current Oracle passwords in a seperate configuration file (.ini file). This script will generate new random passwords and will update this .ini file going forward.
        
      $ cat <<EOF > /usr/local/etc/rotate-dremio-oracle-password.ini
-            [main]
-            dremio_server_url = http://localhost:9047
-            dremio_admin_user = admin1
-            dremio_admin_user_password = changeme123
+     [main]
+     dremio_server_url = http://localhost:9047
+     dremio_admin_user = admin1
+     dremio_admin_user_password = changeme123
 
-            [oracle_source1]
-            current_oracle_password = changeme1
+     [oracle_source1]
+     current_oracle_password = changeme1
 
-            [oracle_source2]
-            current_oracle_password = changeme2
+     [oracle_source2]
+     current_oracle_password = changeme2
 
-            EOF
+     EOF
 
      $ chmod go-rw /usr/local/etc/rotate-dremio-oracle-password.ini
 
@@ -55,24 +55,24 @@ c. Test it manually first, before scheduling it with cron
 a. This example runs the script every 29 days at 5:00AM
 
      $ cat <<EOF > /etc/cron.d/rotate-dremio-oracle-password
-            # Run the Dremio Oracle Password Rotation program every 29 days
-            SHELL=/bin/bash
-            PATH=/sbin:/bin:/usr/sbin:/usr/bin
-            MAILTO="me@email.com"
-            0 5 */29 * * python /usr/local/bin/rotate-dremio-oracle-password.py >> /var/log/rotate-dremio-oracle-password.log 2>&1
-            EOF
+     # Run the Dremio Oracle Password Rotation program every 29 days
+     SHELL=/bin/bash
+     PATH=/sbin:/bin:/usr/sbin:/usr/bin
+     MAILTO="me@email.com"
+     0 5 */29 * * python /usr/local/bin/rotate-dremio-oracle-password.py >> /var/log/rotate-dremio-oracle-password.log 2>&1
+     EOF
 
      $ chmod go-rw /etc/cron.d/rotate-dremio-oracle-password
 
 b. This example runs the script every 44 days at 5:00AM
 
      $ cat <<EOF > /etc/cron.d/rotate-dremio-oracle-password
-            # Run the Dremio Oracle Password Rotation program every 29 days
-            SHELL=/bin/bash
-            PATH=/sbin:/bin:/usr/sbin:/usr/bin
-            MAILTO="me@email.com"
-            0 5 */44 * * python /usr/local/bin/rotate-dremio-oracle-password.py >> /var/log/rotate-dremio-oracle-password.log 2>&1
-            EOF
+     # Run the Dremio Oracle Password Rotation program every 29 days
+     SHELL=/bin/bash
+     PATH=/sbin:/bin:/usr/sbin:/usr/bin
+     MAILTO="me@email.com"
+     0 5 */44 * * python /usr/local/bin/rotate-dremio-oracle-password.py >> /var/log/rotate-dremio-oracle-password.log 2>&1
+     EOF
 
      $ chmod go-rw /etc/cron.d/rotate-dremio-oracle-password
 
