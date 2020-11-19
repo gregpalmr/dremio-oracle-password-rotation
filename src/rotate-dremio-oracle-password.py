@@ -30,7 +30,11 @@
                                 $ chmod +x /usr/local/bin/rotate-dremio-oracle-password.py
 
                        b. Create an initial configuration file in /usr/local/etc/
+                            Because the Dremio REST API does not allow client programs to query the current Oracle password for a 
+                            Dremio data source, this program keeps track of the current Oracle passwords in a seperate configuration 
+                            file (.ini file). This scripts will generate new random passwords and will update this .ini file going forward.
 
+                            
                                 $ cat <<EOF > /usr/local/etc/rotate-dremio-oracle-password.ini
                                  [main]
                                  dremio_server_url = http://localhost:9047
