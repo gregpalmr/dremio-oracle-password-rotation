@@ -38,9 +38,11 @@ Because the Dremio REST API does not allow client programs to query the current 
 
      [oracle_source1]
      current_oracle_password = changeme1
+     oracle_password_length = 8
 
      [oracle_source2]
      current_oracle_password = changeme2
+     oracle_password_length = 10
 
      EOF
 
