@@ -28,7 +28,7 @@ a. Move this script to /usr/local/bin
 
 b. Create an initial configuration file in /usr/local/etc/
 
-Because the Dremio REST API does not allow client programs to query the current Oracle password for a Dremio data source, this program keeps track of the current Oracle passwords in a seperate configuration file (.ini file).
+Because the Dremio REST API does not allow client programs to query the current Oracle password for a Dremio data source, this program keeps track of the current Oracle passwords in a seperate configuration file (.ini file). This scripts will generate new random passwords and will update this .ini file going forward.
        
      $ cat <<EOF > /usr/local/etc/rotate-dremio-oracle-password.ini
             [main]
